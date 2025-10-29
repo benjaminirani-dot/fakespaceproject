@@ -3,165 +3,157 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Funny Videos & Games — Chill Page</title>
+  <title>Laugh Lounge — Funny Videos & Games</title>
   <style>
-    :root{--bg:#0f1724;--card:#0b1220;--accent:#ffcc00;--muted:#9fb0c8}
+    :root{--bg:#0f182b;--card:#111b30;--accent:#ffcc33;--muted:#9fb0c8}
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#071025 0%, #071a2e 100%);color:#e6f0f8}
-    .container{max-width:1100px;margin:32px auto;padding:20px}
-    header{display:flex;align-items:center;gap:16px}
-    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff7ab6);display:flex;align-items:center;justify-content:center;font-weight:800;color:#06293a}
-    h1{margin:0;font-size:1.6rem}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#08111f 0%, #0e1d33 100%);color:#e8f2ff;line-height:1.5}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1180px;margin:32px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#ff85d1);display:flex;align-items:center;justify-content:center;font-weight:800;color:#061c2a;font-size:1.8rem}
+    h1{margin:0;font-size:1.9rem}
     p.lead{margin:6px 0 18px;color:var(--muted)}
 
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .grid{display:grid;grid-template-columns:1fr 370px;gap:20px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}
     .videos{display:grid;gap:12px}
     .video-embed{aspect-ratio:16/9;border-radius:8px;overflow:hidden}
 
     .sidebar{position:sticky;top:24px;align-self:start}
     .games-list{display:flex;flex-direction:column;gap:10px}
-    .game{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;border:1px dashed rgba(255,255,255,0.03);background:rgba(0,0,0,0.12)}
-    .game a{color:var(--accent);text-decoration:none;font-weight:600}
+    .game{display:flex;align-items:center;gap:10px;padding:10px;border-radius:8px;border:1px dashed rgba(255,255,255,0.05);background:rgba(255,255,255,0.03)}
+    .game a{color:var(--accent);font-weight:600}
     .tiny{font-size:0.85rem;color:var(--muted)}
 
     .controls{display:flex;gap:8px;margin-top:12px}
     input[type=text]{flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit}
-    button{padding:8px 10px;border-radius:8px;border:none;background:var(--accent);color:#072028;font-weight:700;cursor:pointer}
+    button{padding:8px 10px;border-radius:8px;border:none;background:var(--accent);color:#072028;font-weight:700;cursor:pointer;transition:0.2s}
+    button:hover{transform:translateY(-2px)}
     footer{margin-top:18px;color:var(--muted);font-size:0.85rem;text-align:center}
 
+    .funfacts{display:grid;gap:10px;margin-top:10px}
+    .fact{background:rgba(255,255,255,0.05);padding:8px 10px;border-radius:8px}
     @media (max-width:880px){.grid{grid-template-columns:1fr;}.sidebar{position:static}}
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <div class="logo">😄</div>
+      <div class="logo">😂</div>
       <div>
-        <h1>Funny Videos & Games — Chill Page</h1>
-        <p class="lead">A playful page with funny YouTube clips and links to free browser games. Use at home — please don't try to bypass school or work restrictions.</p>
+        <h1>Laugh Lounge — Funny Videos & Games</h1>
+        <p class="lead">Relax and laugh a little! Watch hilarious YouTube clips, learn cool fun facts, and play safe, free browser games — all in one cozy page.</p>
       </div>
     </header>
 
     <div class="grid">
       <main>
         <div class="card">
-          <h2 style="margin-top:0">Featured Laughs</h2>
+          <h2>Featured Funny Videos</h2>
           <div class="videos" id="videos">
-            <!-- Three sample embeds: replace or add your own -->
-
-            <div class="video-embed">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Funny clip 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="video-embed">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uelHwf8o7_U" title="Funny clip 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <div class="video-embed">
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7E8c2VQv0vE" title="Funny clip 3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
+            <div class="video-embed"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Funny clip 1" frameborder="0" allowfullscreen></iframe></div>
+            <div class="video-embed"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/tgbNymZ7vqY" title="Funny clip 2" frameborder="0" allowfullscreen></iframe></div>
+            <div class="video-embed"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/1Bix44C1EzY" title="Funny animals" frameborder="0" allowfullscreen></iframe></div>
+            <div class="video-embed"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/L3tsYC5OYlE" title="Comedy skit" frameborder="0" allowfullscreen></iframe></div>
           </div>
 
-          <div class="controls" style="margin-top:14px">
-            <input id="ytUrl" type="text" placeholder="Paste a YouTube watch URL or video id (e.g. dQw4w9WgXcQ)">
+          <div class="controls">
+            <input id="ytUrl" type="text" placeholder="Paste a YouTube link or video ID">
             <button id="addVideo">Add Video</button>
           </div>
-
-          <p class="tiny">Tip: click a thumbnail to play (some networks may block YouTube embeds). If an embed fails, try opening the video on YouTube directly.</p>
+          <p class="tiny">Add your own favorite video to the list! (Some networks may block embeds.)</p>
         </div>
 
-        <div class="card" style="margin-top:14px">
-          <h2 style="margin-top:0">Notes for being a good netizen</h2>
-          <ul class="tiny">
-            <li>Don’t prank or scare people with these pages — consent matters.</li>
-            <li>Respect school or workplace rules. If a site is blocked, it’s usually for a reason.</li>
-            <li>If you want a private copy for offline fun, download videos legally or watch at home.</li>
-          </ul>
+        <div class="card">
+          <h2>Random Fun Facts 😜</h2>
+          <div class="funfacts" id="funfacts"></div>
         </div>
       </main>
 
       <aside class="sidebar">
         <div class="card">
-          <h3 style="margin-top:0">Free Browser Games</h3>
+          <h3>Top Free Browser Games 🎮</h3>
           <div class="games-list">
-            <div class="game"><div style="font-size:22px">🧠</div><div><div><a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Cool Math Games</a></div><div class="tiny">Puzzles, platformers, logic games.</div></div></div>
-
-            <div class="game"><div style="font-size:22px">🌐</div><div><div><a href="https://agar.io" target="_blank" rel="noopener">Agar.io</a></div><div class="tiny">Simple multiplayer blob-eat-blob action.</div></div></div>
-
-            <div class="game"><div style="font-size:22px">🚗</div><div><div><a href="https://krunker.io" target="_blank" rel="noopener">Krunker.io</a></div><div class="tiny">Fast browser shooter (age 13+).</div></div></div>
-
-            <div class="game"><div style="font-size:22px">🎮</div><div><div><a href="https://www.miniclip.com/games/en/" target="_blank" rel="noopener">Miniclip</a></div><div class="tiny">Classic collection of casual games.</div></div></div>
-
-            <div class="game"><div style="font-size:22px">🕹️</div><div><div><a href="https://www.poki.com/" target="_blank" rel="noopener">Poki</a></div><div class="tiny">Curated web games, lots of genres.</div></div></div>
-
+            <div class="game"><div>🧠</div><div><a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Cool Math Games</a><div class="tiny">Brain puzzles & logic fun.</div></div></div>
+            <div class="game"><div>🌐</div><div><a href="https://agar.io" target="_blank" rel="noopener">Agar.io</a><div class="tiny">Classic blob multiplayer game.</div></div></div>
+            <div class="game"><div>🚗</div><div><a href="https://krunker.io" target="_blank" rel="noopener">Krunker.io</a><div class="tiny">Fast-paced shooting fun.</div></div></div>
+            <div class="game"><div>🕹️</div><div><a href="https://www.poki.com/" target="_blank" rel="noopener">Poki</a><div class="tiny">All kinds of games, all free.</div></div></div>
+            <div class="game"><div>🍕</div><div><a href="https://slither.io" target="_blank" rel="noopener">Slither.io</a><div class="tiny">Snake game with real players!</div></div></div>
+            <div class="game"><div>🏎️</div><div><a href="https://shellshock.io" target="_blank" rel="noopener">Shell Shockers</a><div class="tiny">Egg-themed multiplayer shooter.</div></div></div>
+            <div class="game"><div>🐉</div><div><a href="https://littlealchemy2.com/" target="_blank" rel="noopener">Little Alchemy 2</a><div class="tiny">Combine elements and create things.</div></div></div>
+            <div class="game"><div>⚔️</div><div><a href="https://sploop.io" target="_blank" rel="noopener">Sploop.io</a><div class="tiny">Survive and build your base!</div></div></div>
           </div>
-
-          <p class="tiny" style="margin-top:12px">If a site is blocked on your network, follow rules — don’t attempt to bypass filters. Use these links responsibly at home.</p>
+          <p class="tiny">Remember: these are public sites. Play responsibly and follow your local rules — don’t try to unblock at school or work.</p>
         </div>
 
-        <div class="card" style="margin-top:12px;text-align:center">
-          <strong>Quick tools</strong>
+        <div class="card" style="text-align:center">
+          <strong>Customize Page</strong>
           <div style="margin-top:8px" class="tiny">Change header emoji:</div>
-          <div style="display:flex;gap:6px;margin-top:8px"><input id="emoji" type="text" value="😄" style="width:60px;text-align:center;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"><button id="setEmoji">Set</button></div>
+          <div style="display:flex;gap:6px;margin-top:8px;justify-content:center"><input id="emoji" type="text" value="😂" style="width:60px;text-align:center;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit"><button id="setEmoji">Set</button></div>
         </div>
       </aside>
     </div>
 
-    <footer>Made for laughs and learning — keep it kind. ❤️</footer>
+    <footer>Made for fun & laughter — stay kind online! ❤️</footer>
   </div>
 
   <script>
-    // Add YouTube video from ID or full URL
+    // Add YouTube video
     const addBtn = document.getElementById('addVideo');
     const ytInput = document.getElementById('ytUrl');
     const videosDiv = document.getElementById('videos');
 
     function extractYouTubeID(text){
       if(!text) return null;
-      // if user pasted full url
       try{
         const url = new URL(text);
         if(url.hostname.includes('youtu')){
           if(url.searchParams.get('v')) return url.searchParams.get('v');
-          // short youtu.be/ID
           return url.pathname.split('/').filter(Boolean).pop();
         }
-      }catch(e){/* not a url */}
-      // fallback: assume it's an ID
+      }catch(e){}
       const id = text.trim().match(/[a-zA-Z0-9_-]{6,}/);
       return id ? id[0] : null;
     }
 
     addBtn.addEventListener('click', ()=>{
       const id = extractYouTubeID(ytInput.value);
-      if(!id){alert('Could not find a YouTube video id. Paste a full https://youtu.be/... or https://www.youtube.com/watch?v=... URL, or just the id.');return}
+      if(!id){alert('Enter a valid YouTube URL or video ID!');return;}
       const wrapper = document.createElement('div');
       wrapper.className = 'video-embed';
       const iframe = document.createElement('iframe');
-      iframe.width = '100%'; iframe.height = '100%';
-      iframe.src = `https://www.youtube.com/embed/${id}`;
-      iframe.title = 'User added video'; iframe.frameBorder = '0';
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
+      iframe.width='100%';iframe.height='100%';
+      iframe.src=`https://www.youtube.com/embed/${id}`;
+      iframe.title='User video';iframe.frameBorder='0';iframe.allowFullscreen=true;
       wrapper.appendChild(iframe);
       videosDiv.prepend(wrapper);
-      ytInput.value = '';
+      ytInput.value='';
     });
 
-    // Emoji setter
-    document.getElementById('setEmoji').addEventListener('click', ()=>{
-      const e = document.getElementById('emoji').value || '😄';
-      document.querySelector('.logo').textContent = e;
+    // Emoji change
+    document.getElementById('setEmoji').addEventListener('click',()=>{
+      const e=document.getElementById('emoji').value||'😂';
+      document.querySelector('.logo').textContent=e;
     });
 
-    // Some friendly UX: click on game link shows a mini-warning
-    document.querySelectorAll('.games-list a').forEach(a=>{
-      a.addEventListener('click', (ev)=>{
-        const proceed = confirm('You are about to open an external game site. Continue?');
-        if(!proceed) ev.preventDefault();
-      })
+    // Fun facts
+    const facts=[
+      'Laughter boosts your immune system and lowers stress.',
+      'Cows have best friends and can get stressed when separated.',
+      'Bananas are berries, but strawberries aren’t!',
+      'Octopuses have three hearts and blue blood.',
+      'Honey never spoils — jars found in ancient tombs were still edible!',
+      'A group of flamingos is called a “flamboyance.”',
+      'Your brain releases endorphins every time you smile.',
+      'Koalas sleep up to 22 hours a day. Lazy legends.',
+      'Sea otters hold hands while sleeping to stay together.',
+      'Sharks existed before trees!' ];
+
+    const factDiv=document.getElementById('funfacts');
+    facts.sort(()=>Math.random()-0.5).slice(0,5).forEach(f=>{
+      const d=document.createElement('div');d.className='fact';d.textContent='• '+f;factDiv.appendChild(d);
     });
   </script>
 </body>
