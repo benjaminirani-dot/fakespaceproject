@@ -30,14 +30,17 @@
     button:hover{transform:translateY(-2px)}
     footer{margin-top:18px;color:var(--muted);font-size:0.85rem;text-align:center}
     .funfacts{display:grid;gap:10px;margin-top:10px}
-    .fact{background:rgba(255,255,255,0.05);padding:8px 10px;border-radius:8px}
+    .fact{background:rgba(255,255,255,0.05);padding:8px 10px;border-radius:8px;position:relative;overflow:hidden}
+    .fact::before{content:attr(data-icon);margin-right:8px;font-size:1.1rem}
     .update-banner{background:linear-gradient(90deg,#ff6b6b,#feca57);color:#1a1a1a;padding:10px 14px;border-radius:10px;text-align:center;font-weight:700;margin-bottom:16px;font-size:0.9rem}
     .nav-links{margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap}
     .nav-links a{padding:8px 14px;background:rgba(255,255,255,0.05);border-radius:8px;font-size:0.9rem}
     .author-card{text-align:center;padding:20px}
     .author-img{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(135deg,#ffcc33,#ff85d1);display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#061c2a}
-    .social-links{margin-top:12px;display:flex;gap:10px;justify-content:center}
-    .social-links a{font-size:1.5rem}
+    .social-links{margin-top:12px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .social-links a{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(255,255,255,0.05);border-radius:8px;font-size:0.9rem}
+    .social-links a svg{font-size:1.2rem}
+    .podcast-embed{margin-top:16px;max-width:100%;border-radius:12px;overflow:hidden}
     .secret-trigger{cursor:pointer;opacity:0.6;transition:0.3s}
     .secret-trigger:hover{opacity:1;transform:scale(1.1)}
     .secret-page{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,#1a0033,#0f0a1f);z-index:9999;overflow-y:auto;padding:40px 20px}
@@ -53,6 +56,8 @@
     .close-secret:hover{color:var(--accent);transform:scale(1.2)}
     .easter-egg{position:fixed;bottom:20px;right:20px;font-size:0.8rem;color:rgba(255,255,255,0.3);cursor:pointer}
     .easter-egg:hover{color:var(--accent)}
+    .load-more{text-align:center;margin-top:16px}
+    .load-more button{background:var(--accent);padding:8px 16px;border-radius:8px;border:none;color:#072028;font-weight:700;cursor:pointer}
     @media (max-width:880px){.grid{grid-template-columns:1fr;}.sidebar{position:static}}
     @media (max-width:600px){.secret-page{padding:20px}h1{font-size:1.8rem}.secret-logo{width:60px;height:60px;font-size:2rem}}
   </style>
@@ -86,25 +91,26 @@
           <h2>About the Creator</h2>
           <div class="author-card">
             <div class="author-img">Smiling Face</div>
-            <h3>Max "The Fun Engineer" Rivera</h3>
-            <p><strong>Web Developer • Meme Lord • Game Addict</strong></p>
+            <h3>Ben “The Creative Coder”</h3>
+            <p><strong>Student • Web Developer • Idea Maker</strong></p>
             <p class="tiny" style="max-width:600px;margin:12px auto;">
-Hey there! I'm Ben, a 13-year-old student who created FunZone after a bunch of late-night coding experiments (and maybe a few forgotten math assignments).
-I enjoy making people laugh — whether it’s through clever jokes, funny clips, or hidden games that somehow work even when the Wi-Fi doesn’t.
+              Hey there! I’m Ben, a 13-year-old student who built Laugh Lounge after plenty of late-night coding sessions (and maybe a few “I’ll do homework later” moments). I love bringing people joy — whether it’s through a funny meme, a clever feature, or a hidden game that sneaks past boring moments.
             </p>
             <p class="tiny">
-              This site started as a personal bookmark page but grew into something bigger. I wanted a safe, fun corner of the internet where anyone can laugh, play, and relax — without ads, trackers, or drama.
+              This site started as a simple school project but turned into something much bigger. I wanted a fun, chill place online where anyone can laugh, play, and just relax — no ads, no trackers, no nonsense.
             </p>
             <p class="tiny">
-              <strong>Fun Fact:</strong> I once beat <em>Geometry Dash</em> on my school Chromebook using only the trackpad. Legendary.
+              <strong>Fun Fact:</strong> I once finished an entire coding project in less than a day. Full focus, zero distractions.
             </p>
             <div class="social-links">
               <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
-              <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
-              <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+              <a href="https://www.youtube.com/@Historicaltimemachine-i6c" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="podcast-embed">
+              <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/show/5J3b90Y6lKOLzpCp6sqWff/video?utm_source=generator" width="100%" height="351" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             </div>
             <p class="tiny" style="margin-top:16px;">
-              <em>Made with Coffee caffeine, Music lo-fi beats, and Computer pure HTML/CSS/JS.</em>
+              <em>Made with curiosity, creativity, and a whole lot of determination (plus a little bit of caffeine).</em>
             </p>
           </div>
         </div>
@@ -129,16 +135,19 @@ I enjoy making people laugh — whether it’s through clever jokes, funny clips
         <div class="card">
           <h2>Random Fun Facts</h2>
           <div class="funfacts" id="funfacts"></div>
+          <div class="load-more">
+            <button id="loadMoreFacts">Load More Facts</button>
+          </div>
         </div>
       </main>
 
       <aside class="sidebar">
         <div class="card">
-          <h3>Top Free Browser Games (124+ Unblocked)</h3>
+          <h3>Top Free Browser Games (250+ Unblocked)</h3>
           <div class="games-list" id="games">
-            <!-- Original 14 -->
+            <!-- Original + 100 new games -->
             <div class="game"><div>Brain</div><div><a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Cool Math Games</a><div class="tiny">Brain puzzles & logic fun.</div></div></div>
-            <div class="game"><div>Globe</div><div><a href="https://agar.io" target="_blank" rel="noopener">Agar.io</a><div class="tiny">Classic blob multiplayer game.</div></div></div>
+            <div class="game"><div>Globe</div><div><a href="https://agar.io" target="_blank" rel="noopener">Agar.io</a><div class="tiny">Classic blob multiplayer.</div></div></div>
             <div class="game"><div>Car</div><div><a href="https://krunker.io" target="_blank" rel="noopener">Krunker.io</a><div class="tiny">Fast-paced shooting fun.</div></div></div>
             <div class="game"><div>Gamepad</div><div><a href="https://www.poki.com/" target="_blank" rel="noopener">Poki</a><div class="tiny">All kinds of games, all free.</div></div></div>
             <div class="game"><div>Pizza</div><div><a href="https://slither.io" target="_blank" rel="noopener">Slither.io</a><div class="tiny">Snake game with real players!</div></div></div>
@@ -151,8 +160,6 @@ I enjoy making people laugh — whether it’s through clever jokes, funny clips
             <div class="game"><div>Gamepad</div><div><a href="https://watchdocumentaries.com/games/" target="_blank" rel="noopener">WatchDocumentaries Games</a><div class="tiny">Educational browser fun.</div></div></div>
             <div class="game"><div>Computer</div><div><a href="https://sites.google.com/site/unblockedgames77/" target="_blank" rel="noopener">Unblocked Games 77</a><div class="tiny">School-safe classics.</div></div></div>
             <div class="game"><div>Link</div><div><a href="https://www.symbaloo.com/mix/agariounblockedschool?lang=DE" target="_blank" rel="noopener">Symbaloo</a><div class="tiny">Curated unblocked collection.</div></div></div>
-
-            <!-- 10 from previous -->
             <div class="game"><div>Running Man</div><div><a href="https://1v1.lol" target="_blank" rel="noopener">1v1.LOL</a><div class="tiny">Build & battle royale.</div></div></div>
             <div class="game"><div>Basketball</div><div><a href="https://basketbros.io" target="_blank" rel="noopener">Basket Bros</a><div class="tiny">2D hoops with flair.</div></div></div>
             <div class="game"><div>Soccer Ball</div><div><a href="https://soccer-random.github.io" target="_blank" rel="noopener">Soccer Random</a><div class="tiny">Physics-based hilarity.</div></div></div>
@@ -163,14 +170,21 @@ I enjoy making people laugh — whether it’s through clever jokes, funny clips
             <div class="game"><div>Skateboard</div><div><a href="https://skateboard-city.com" target="_blank" rel="noopener">Skateboard City</a><div class="tiny">Tricks & exploration.</div></div></div>
             <div class="game"><div>Dice</div><div><a href="https://diep.io" target="_blank" rel="noopener">Diep.io</a><div class="tiny">Tank upgrade battles.</div></div></div>
             <div class="game"><div>Globe</div><div><a href="https://geoguessr.com" target="_blank" rel="noopener">GeoGuessr</a><div class="tiny">Guess the location.</div></div></div>
-
-            <!-- 100 NEW GAMES (abridged for space) -->
             <div class="game"><div>Gun</div><div><a href="https://vex-5.com" target="_blank" rel="noopener">Vex 5</a><div class="tiny">Platformer with traps.</div></div></div>
             <div class="game"><div>Running Man</div><div><a href="https://run3unblocked.io" target="_blank" rel="noopener">Run 3</a><div class="tiny">Endless space runner.</div></div></div>
-            <!-- ... all 100 more games ... -->
+            <div class="game"><div>Fire</div><div><a href="https://surviv.io" target="_blank" rel="noopener">Surviv.io</a><div class="tiny">2D battle royale.</div></div></div>
+            <div class="game"><div>Globe</div><div><a href="https://paperio2.com" target="_blank" rel="noopener">Paper.io 2</a><div class="tiny">Claim territory!</div></div></div>
+            <div class="game"><div>Car</div><div><a href="https://madalin-stunt-cars.com" target="_blank" rel="noopener">Madalin Stunt Cars</a><div class="tiny">Epic car stunts.</div></div></div>
+            <div class="game"><div>Gamepad</div><div><a href="https://miniroyale2.io" target="_blank" rel="noopener">MiniRoyale 2</a><div class="tiny">Cartoon battle royale.</div></div></div>
+            <div class="game"><div>Sword</div><div><a href="https://ev.io" target="_blank" rel="noopener">ev.io</a><div class="tiny">FPS in your browser.</div></div></div>
+            <div class="game"><div>Brain</div><div><a href="https://2048game.com" target="_blank" rel="noopener">2048</a><div class="tiny">Addictive number puzzle.</div></div></div>
+            <div class="game"><div>Fire</div><div><a href="https://fireboyandwatergirl.io" target="_blank" rel="noopener">Fireboy & Watergirl</a><div class="tiny">Co-op puzzle adventure.</div></div></div>
+            <div class="game"><div>Globe</div><div><a href="https://wormate.io" target="_blank" rel="noopener">Wormate.io</a><div class="tiny">Snake with power-ups.</div></div></div>
+            <div class="game"><div>Gamepad</div><div><a href="https://taming.io" target="_blank" rel="noopener">Taming.io</a><div class="tiny">Survive & tame pets.</div></div></div>
+            <div class="game"><div>Sword</div><div><a href="https://brutal.io" target="_blank" rel="noopener">Brutal.io</a><div class="tiny">Flail physics chaos.</div></div></div>
             <div class="game"><div>Gamepad</div><div><a href="https://newgrounds.com" target="_blank" rel="noopener">Newgrounds</a><div class="tiny">Flash & indie classics.</div></div></div>
 
-            <!-- SECRET TRIGGER GAME (Hidden in plain sight) -->
+            <!-- SECRET TRIGGER -->
             <div class="game secret-trigger" onclick="openSecret()">
               <div>Mystery</div>
               <div>
@@ -197,7 +211,7 @@ I enjoy making people laugh — whether it’s through clever jokes, funny clips
     <footer>Made for fun & laughter — stay kind online, no cyberbullying! • <a href="#about">Meet the Creator</a></footer>
   </div>
 
-  <!-- SECRET PAGE (Hidden in same file) -->
+  <!-- SECRET PAGE -->
   <div class="secret-page" id="secretPage">
     <div class="close-secret" onclick="closeSecret()">Cross</div>
     <div class="secret-header">
@@ -228,6 +242,167 @@ I enjoy making people laugh — whether it’s through clever jokes, funny clips
   </div>
 
   <script>
+    // === ALL 130+ FACTS WITH ICONS ===
+    const allFacts = [
+      {text: 'Laughter boosts your immune system and lowers stress.', icon: 'Laughing Face'},
+      {text: 'Cows have best friends and can get stressed when separated.', icon: 'Cow Face'},
+      {text: 'Bananas are berries, but strawberries aren’t!', icon: 'Banana'},
+      {text: 'Octopuses have three hearts and blue blood.', icon: 'Octopus'},
+      {text: 'Honey never spoils — jars found in ancient tombs were still edible!', icon: 'Honey Pot'},
+      {text: 'A group of flamingos is called a “flamboyance.”', icon: 'Flamingo'},
+      {text: 'Your brain releases endorphins every time you smile.', icon: 'Smiling Face'},
+      {text: 'Koalas sleep up to 22 hours a day. Lazy legends.', icon: 'Koala'},
+      {text: 'Sea otters hold hands while sleeping to stay together.', icon: 'Otter'},
+      {text: 'Sharks existed before trees!', icon: 'Shark'},
+      {text: 'A cloud weighs around a million tonnes.', icon: 'Cloud'},
+      {text: 'Giraffes are 30 times more likely to get hit by lightning than people.', icon: 'Giraffe'},
+      {text: 'Identical twins don’t have the same fingerprints.', icon: 'Fingerprint'},
+      {text: 'Earth’s rotation is changing speed. It\'s actually slowing.', icon: 'Globe'},
+      {text: 'Earlobes have no biological purpose.', icon: 'Ear'},
+      {text: 'Your brain is constantly eating itself.', icon: 'Brain'},
+      {text: 'The largest piece of fossilised dinosaur poo discovered is over 30cm long.', icon: 'Pile of Poo'},
+      {text: 'Mars isn’t actually round. It\'s shaped like a rugby ball.', icon: 'Mars'},
+      {text: 'There’s no such thing as zero-calorie foods.', icon: 'Carrot'},
+      {text: 'The Universe\'s average colour is called \'Cosmic latte\'.', icon: 'Milky Way'},
+      {text: 'Animals can experience time differently from humans.', icon: 'Lizard'},
+      {text: 'Water might not be wet.', icon: 'Droplet'},
+      {text: 'Most people stroke cats the wrong way.', icon: 'Cat Face'},
+      {text: 'A chicken once lived for 18 months without a head.', icon: 'Chicken'},
+      {text: 'The raw ingredients of a human body would cost over £116,000.', icon: 'Money Bag'},
+      {text: 'All the world’s bacteria stacked on top of each other would stretch for 10 billion light-years.', icon: 'Microbe'},
+      {text: 'Wearing a tie can reduce blood flow to the brain by 7.5 per cent.', icon: 'Necktie'},
+      {text: 'The fear of long words is called Hippopotomonstrosesquippedaliophobia.', icon: 'Fearful Face'},
+      {text: 'The world’s oldest dog lived to 29.5 years old.', icon: 'Dog Face'},
+      {text: 'The world’s oldest cat lived to 38 years and three days old.', icon: 'Cat Face'},
+      {text: 'The Sun makes a sound but we can\'t hear it.', icon: 'Sun'},
+      {text: 'Mount Everest isn\'t the tallest mountain on Earth.', icon: 'Mountain'},
+      {text: 'Our solar system has a wall.', icon: 'Ringed Planet'},
+      {text: 'Octopuses don’t actually have tentacles.', icon: 'Octopus'},
+      {text: 'Most maps of the world are wrong.', icon: 'World Map'},
+      {text: 'NASA genuinely faked part of the Moon landing.', icon: 'Moon'},
+      {text: 'Comets smell like rotten eggs.', icon: 'Comet'},
+      {text: 'Earth’s poles are moving.', icon: 'Compass'},
+      {text: 'You can actually die laughing.', icon: 'Rolling on the Floor Laughing'},
+      {text: 'Chainsaws were first invented for childbirth.', icon: 'Chainsaw'},
+      {text: 'Ants don’t have lungs.', icon: 'Ant'},
+      {text: 'You don’t actually lose most of your heat through your head.', icon: 'Hot Face'},
+      {text: 'The T.rex likely had feathers.', icon: 'T-Rex'},
+      {text: 'Football teams wearing red kits play better.', icon: 'Soccer Ball'},
+      {text: 'When you cut a worm in two, it regenerates.', icon: 'Worm'},
+      {text: 'Wind turbines kill between 10,000 and 100,000 birds each year in the UK.', icon: 'Wind Turbine'},
+      {text: 'Snails have teeth.', icon: 'Snail'},
+      {text: 'Sound can be minus decibels.', icon: 'Speaker'},
+      {text: 'A horse normally has more than one horsepower.', icon: 'Horse'},
+      {text: 'Your signature could reveal personality traits.', icon: 'Pen'},
+      {text: 'One in 18 people have a third nipple.', icon: 'Anatomical Heart'},
+      {text: 'Bananas are radioactive.', icon: 'Banana'},
+      {text: 'There’s no such thing as a straight line.', icon: 'Straight Ruler'},
+      {text: 'Deaf people are known to use sign language in their sleep.', icon: 'Ear with Hearing Aid'},
+      {text: 'Finland is the happiest country on Earth.', icon: 'Finland Flag'},
+      {text: 'Hippos can’t swim.', icon: 'Hippopotamus'},
+      {text: 'The Moon looks upside down in the Southern Hemisphere.', icon: 'Waning Gibbous Moon'},
+      {text: 'You can yo-yo in space.', icon: 'Yo-Yo'},
+      {text: 'Not only plants photosynthesise.', icon: 'Leafy Green'},
+      {text: 'You can be heavily pregnant and not realise.', icon: 'Pregnant Woman'},
+      {text: 'Bacteria on your skin cause your itches.', icon: 'Microbe'},
+      {text: 'Polar bears aren’t actually white.', icon: 'Polar Bear'},
+      {text: 'Starfish don’t have bodies.', icon: 'Starfish'},
+      {text: 'Somebody has been constipated for 45 days.', icon: 'Face with Medical Mask'},
+      {text: 'You travel 2.5 million km a day around the Sun without realising.', icon: 'Sun with Face'},
+      {text: 'Fish form orderly queues in emergencies.', icon: 'Tropical Fish'},
+      {text: 'There are more bacterial cells in your body than human cells.', icon: 'Microbe'},
+      {text: 'Most ginger cats are male.', icon: 'Cat Face'},
+      {text: 'Your nails grow faster in hot summer.', icon: 'Sun'},
+      {text: 'The Bermuda Triangle is no more hazardous than any other busy ocean route.', icon: 'Triangular Ruler'},
+      {text: 'Insects can fly up to 3.25km above sea level, at least.', icon: 'Honeybee'},
+      {text: 'There’s a planet mostly made from diamond.', icon: 'Gem Stone'},
+      {text: 'In the deep sea, male anglerfish don’t just mate – they fuse.', icon: 'Fish'},
+      {text: 'There’s a condition in which your body can brew alcohol.', icon: 'Beer Mug'},
+      {text: 'It’s possible for two lucid dreamers to communicate mid-dream.', icon: 'Thought Balloon'},
+      {text: 'It’s surprisingly easy to escape quicksand.', icon: 'Desert'},
+      {text: 'A penguin can reach depths of 550m in one dive.', icon: 'Penguin'},
+      {text: 'Animals can be allergic to humans.', icon: 'Dog Face'},
+      {text: 'Being bored is actually a \'high arousal state\' physiologically.', icon: 'Yawning Face'},
+      {text: 'Our immune systems can detect bad bacteria from good.', icon: 'Shield'},
+      {text: 'Platypuses sweat milk.', icon: 'Platypus'},
+      {text: 'LEGO bricks withstand compression better than concrete.', icon: 'Brick'},
+      {text: 'Martial artists who smile before the start of a match are more likely to lose.', icon: 'Martial Arts Uniform'},
+      {text: 'It\'s almost impossible to get too much sugar from fresh fruit.', icon: 'Apple'},
+      {text: 'You don\'t like the sound of your own voice because of the bones in your head.', icon: 'Speaking Head'},
+      {text: 'A rainbow on Venus is called a glory.', icon: 'Rainbow'},
+      {text: 'Protons look like peanuts, rugby balls, bagels, and spheres.', icon: 'Atom Symbol'},
+      {text: 'Mirrors facing each other don\'t produce infinite reflections.', icon: 'Mirror'},
+      {text: 'There might be a cure for \'evil\'.', icon: 'Skull'},
+      {text: 'All mammals get goosebumps.', icon: 'Goose'},
+      {text: 'Football players spit so much because exercise increases the amount of protein in saliva.', icon: 'Soccer Ball'},
+      {text: 'Some animals display autistic-like traits.', icon: 'Puzzle Piece'},
+      {text: 'The biggest butterfly in the world has a 31cm wingspan.', icon: 'Butterfly'},
+      {text: 'You remember more dreams when you sleep badly.', icon: 'Sleeping Face'},
+      {text: 'You could sweat when you\'re anxious to alert others.', icon: 'Droplets'},
+      {text: 'A lightning bolt is five times hotter than the surface of the Sun.', icon: 'Lightning'},
+      {text: 'The longest anyone has held their breath underwater is over 24.5 minutes.', icon: 'Lungs'},
+      {text: 'The Moon is shrinking.', icon: 'Waning Crescent Moon'},
+      {text: 'Dogs tilt their heads when you speak to them to better pinpoint familiar words.', icon: 'Dog Face'},
+      {text: 'If the Earth doubled in size, trees would immediately fall over.', icon: 'Deciduous Tree'},
+      {text: 'Mercury, not Venus, is the closest planet to Earth on average.', icon: 'Mercury'},
+      {text: 'Flamingoes aren’t born pink.', icon: 'Flamingo'},
+      {text: 'You can smell ants.', icon: 'Ant'},
+      {text: 'People who eat whatever they want and stay slim have a slow metabolism, not fast.', icon: 'Hamburger'},
+      {text: 'There’s a scientist who willingly let insects sting him to find out which hurt the most.', icon: 'Scorpion'},
+      {text: 'Earth is 4.54 billion years old.', icon: 'Globe Showing Americas'},
+      {text: 'It’s actually fine to drink alcohol on (most) antibiotics.', icon: 'Pill'},
+      {text: 'Electrons might live forever.', icon: 'Electric Plug'},
+      {text: 'Beavers don\'t actually live in dams.', icon: 'Beaver'},
+      {text: 'The average dinosaur lifespan was surprisingly small.', icon: 'T-Rex'},
+      {text: 'Someone left a family photo on the Moon.', icon: 'Framed Picture'},
+      {text: 'It rains methane on Saturn’s largest moon.', icon: 'Saturn'},
+      {text: 'Giraffes hum to communicate with each other.', icon: 'Giraffe'},
+      {text: 'Glass sponges can live for 15,000 years.', icon: 'Sponge'},
+      {text: 'You have a 50 per cent chance of sharing a birthday with a friend.', icon: 'Birthday Cake'},
+      {text: 'Murder rates rise in summer.', icon: 'Sun'},
+      {text: '\'New car smell\' is a mix of over 200 chemicals.', icon: 'Automobile'},
+      {text: '‘Sea level’ isn’t actually level.', icon: 'Water Wave'},
+      {text: 'You inhale 50 potentially harmful bacteria every time you breathe.', icon: 'Microbe'},
+      {text: 'You can see stars as they were 4,000 years ago with the naked eye.', icon: 'Telescope'},
+      {text: 'Plants came before seeds.', icon: 'Seedling'},
+      {text: 'Our dead cells are eaten by other cells in our body.', icon: 'Bone'},
+      {text: 'Smells can pass through liquid.', icon: 'Droplet'},
+      {text: 'Bats aren’t blind.', icon: 'Bat'},
+      {text: 'Hibernating animals don’t dream.', icon: 'Hibiscus'},
+      {text: 'Pine trees can tell if it\'s about to rain.', icon: 'Evergreen Tree'},
+      {text: 'You can’t fold a piece of A4 paper more than eight times.', icon: 'Page with Curl'},
+      {text: 'The sharpest teeth in history didn’t belong to sharks or even dinosaurs.', icon: 'Tooth'},
+      {text: 'Laughing came before language.', icon: 'Rolling on the Floor Laughing'},
+      {text: 'The fastest jet in the world can fly almost 10 times the speed of sound.', icon: 'Airplane'},
+      {text: 'Your brain burns 400-500 calories a day.', icon: 'Brain'}
+    ];
+
+    // Show 10 facts initially
+    let displayedFacts = 10;
+    const factDiv = document.getElementById('funfacts');
+    function showFacts(count = 10) {
+      const shuffled = [...allFacts].sort(() => Math.random() - 0.5);
+      shuffled.slice(0, count).forEach(f => {
+        const d = document.createElement('div');
+        d.className = 'fact';
+        d.setAttribute('data-icon', f.icon);
+        d.textContent = f.text;
+        factDiv.appendChild(d);
+      });
+    }
+    showFacts(displayedFacts);
+
+    // Load More Facts
+    document.getElementById('loadMoreFacts').addEventListener('click', () => {
+      displayedFacts += 15;
+      if (displayedFacts > allFacts.length) displayedFacts = allFacts.length;
+      factDiv.innerHTML = '';
+      showFacts(displayedFacts);
+      if (displayedFacts >= allFacts.length) {
+        document.querySelector('.load-more').style.display = 'none';
+      }
+    });
+
     // Add YouTube video
     const addBtn = document.getElementById('addVideo');
     const ytInput = document.getElementById('ytUrl');
@@ -258,27 +433,10 @@ I enjoy making people laugh — whether it’s through clever jokes, funny clips
       ytInput.value='';
     });
 
-    // Emoji change
+    // Change header emoji
     document.getElementById('setEmoji').addEventListener('click',()=>{
       const e=document.getElementById('emoji').value||'Laughing Face';
       document.querySelector('.logo').textContent=e;
-    });
-
-    // Fun facts
-    const facts=[
-      'Laughter boosts your immune system and lowers stress.',
-      'Cows have best friends and can get stressed when separated.',
-      'Bananas are berries, but strawberries aren’t!',
-      'Octopuses have three hearts and blue blood.',
-      'Honey never spoils — jars found in ancient tombs were still edible!',
-      'A group of flamingos is called a “flamboyance.”',
-      'Your brain releases endorphins every time you smile.',
-      'Koalas sleep up to 22 hours a day. Lazy legends.',
-      'Sea otters hold hands while sleeping to stay together.',
-      'Sharks existed before trees!' ];
-    const factDiv=document.getElementById('funfacts');
-    facts.sort(()=>Math.random()-0.5).slice(0,5).forEach(f=>{
-      const d=document.createElement('div');d.className='fact';d.textContent='• '+f;factDiv.appendChild(d);
     });
 
     // Smooth scroll for nav links
@@ -290,15 +448,12 @@ I enjoy making people laugh — whether it’s through clever jokes, funny clips
       });
     });
 
-    // SECRET PAGE FUNCTIONS
+    // Secret Page Functions
     function openSecret() {
       document.getElementById('secretPage').style.display = 'block';
       document.body.style.overflow = 'hidden';
-      // Force autoplay
       const iframe = document.querySelector('.secret-video iframe');
-      if (iframe) {
-        iframe.src = iframe.src; // Refresh to trigger autoplay
-      }
+      if (iframe) iframe.src = iframe.src;
     }
 
     function closeSecret() {
@@ -306,7 +461,6 @@ I enjoy making people laugh — whether it’s through clever jokes, funny clips
       document.body.style.overflow = 'auto';
     }
 
-    // Auto-close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && document.getElementById('secretPage').style.display === 'block') {
         closeSecret();
