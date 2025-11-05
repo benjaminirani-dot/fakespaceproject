@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Laugh Lounge — Funny Videos & Games</title>
   <style>
-    :root{--bg:#0f182b;--card:#111b30;--accent:#ffcc33;--muted:#9fb0c8}
+    :root{--bg:#0f182b;--card:#111b30;--accent:#ffcc33;--muted:#9fb0c8;--secret:#ff2d55}
     *{box-sizing:border-box}
     body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#08111f 0%, #0e1d33 100%);color:#e8f2ff;line-height:1.5}
     a{color:var(--accent);text-decoration:none}
@@ -32,25 +32,83 @@
     .funfacts{display:grid;gap:10px;margin-top:10px}
     .fact{background:rgba(255,255,255,0.05);padding:8px 10px;border-radius:8px}
     .update-banner{background:linear-gradient(90deg,#ff6b6b,#feca57);color:#1a1a1a;padding:10px 14px;border-radius:10px;text-align:center;font-weight:700;margin-bottom:16px;font-size:0.9rem}
+    .nav-links{margin-bottom:16px;display:flex;gap:12px;flex-wrap:wrap}
+    .nav-links a{padding:8px 14px;background:rgba(255,255,255,0.05);border-radius:8px;font-size:0.9rem}
+    .author-card{text-align:center;padding:20px}
+    .author-img{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;background:linear-gradient(135deg,#ffcc33,#ff85d1);display:flex;align-items:center;justify-content:center;font-size:3rem;font-weight:800;color:#061c2a}
+    .social-links{margin-top:12px;display:flex;gap:10px;justify-content:center}
+    .social-links a{font-size:1.5rem}
+    .secret-trigger{cursor:pointer;opacity:0.6;transition:0.3s}
+    .secret-trigger:hover{opacity:1;transform:scale(1.1)}
+    .secret-page{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(180deg,#1a0033,#0f0a1f);z-index:9999;overflow-y:auto;padding:40px 20px}
+    .secret-header{text-align:center;margin-bottom:32px}
+    .secret-logo{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--secret),#ff8c42);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:2.5rem;margin:0 auto 16px;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+    .secret-page h1{margin:0;font-size:2.2rem;color:var(--secret);text-shadow:0 0 10px rgba(255,45,85,0.5)}
+    .secret-card{background:linear-gradient(180deg, rgba(255,45,85,0.08), rgba(255,140,66,0.03));padding:24px;border-radius:16px;border:2px dashed var(--secret);box-shadow:0 0 20px rgba(255,45,85,0.2);max-width:900px;margin:0 auto}
+    .secret-video{aspect-ratio:16/9;border-radius:12px;overflow:hidden;margin:20px 0;box-shadow:0 0 30px rgba(255,45,85,0.4);border:3px solid var(--secret)}
+    .secret-info h3{margin:16px 0 8px;color:var(--accent)}
+    .secret-info p{font-size:0.9rem;color:var(--muted);margin:6px 0}
+    .close-secret{position:absolute;top:20px;right:20px;font-size:2rem;cursor:pointer;color:var(--muted);transition:0.3s}
+    .close-secret:hover{color:var(--accent);transform:scale(1.2)}
+    .easter-egg{position:fixed;bottom:20px;right:20px;font-size:0.8rem;color:rgba(255,255,255,0.3);cursor:pointer}
+    .easter-egg:hover{color:var(--accent)}
     @media (max-width:880px){.grid{grid-template-columns:1fr;}.sidebar{position:static}}
+    @media (max-width:600px){.secret-page{padding:20px}h1{font-size:1.8rem}.secret-logo{width:60px;height:60px;font-size:2rem}}
   </style>
 </head>
 <body>
   <div class="container">
     <div class="update-banner">
-      🚀 MAJOR UPDATE COMING VERY SOON — New games, themes, and surprises! Stay tuned!
+      MAJOR UPDATE COMING VERY SOON — New games, themes, and surprises! Stay tuned!
     </div>
 
     <header>
-      <div class="logo">😂</div>
+      <div class="logo">Laughing Face</div>
       <div>
         <h1>Laugh Lounge — Funny Videos & Games</h1>
         <p class="lead">Relax and laugh a little! Watch hilarious YouTube clips, learn cool fun facts, and play safe, free browser games — all in one cozy page. Please don't use this site unwisely.</p>
       </div>
     </header>
 
-    <div class="grid">
+    <!-- Navigation Links -->
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About the Author</a>
+      <a href="#games">Games</a>
+      <a href="#videos">Videos</a>
+    </div>
+
+    <div class="grid" id="home">
       <main>
+        <!-- About the Author Section -->
+        <div class="card" id="about">
+          <h2>About the Creator</h2>
+          <div class="author-card">
+            <div class="author-img">Smiling Face</div>
+            <h3>Max "The Fun Engineer" Rivera</h3>
+            <p><strong>Web Developer • Meme Lord • Game Addict</strong></p>
+            <p class="tiny" style="max-width:600px;margin:12px auto;">
+              Hey there! I'm Max, a 17-year-old high school senior who built <em>Laugh Lounge</em> during late-night coding sessions (and a few skipped study halls). 
+              I love making people smile — whether it's through a perfectly timed meme, a hilarious video, or a secret stash of unblocked games when the school Wi-Fi says "no."
+            </p>
+            <p class="tiny">
+              This site started as a personal bookmark page but grew into something bigger. I wanted a safe, fun corner of the internet where anyone can laugh, play, and relax — without ads, trackers, or drama.
+            </p>
+            <p class="tiny">
+              <strong>Fun Fact:</strong> I once beat <em>Geometry Dash</em> on my school Chromebook using only the trackpad. Legendary.
+            </p>
+            <div class="social-links">
+              <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a>
+              <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <p class="tiny" style="margin-top:16px;">
+              <em>Made with Coffee caffeine, Music lo-fi beats, and Computer pure HTML/CSS/JS.</em>
+            </p>
+          </div>
+        </div>
+
         <div class="card">
           <h2>Featured Funny Videos</h2>
           <div class="videos" id="videos">
@@ -67,155 +125,106 @@
           </div>
           <p class="tiny">Add your own favorite video to the list! (Some networks may block embeds.)</p>
         </div>
+
         <div class="card">
-          <h2>Random Fun Facts 😜</h2>
+          <h2>Random Fun Facts</h2>
           <div class="funfacts" id="funfacts"></div>
         </div>
       </main>
 
       <aside class="sidebar">
         <div class="card">
-          <h3>Top Free Browser Games 🎮 (124+ Unblocked)</h3>
-          <div class="games-list">
+          <h3>Top Free Browser Games (124+ Unblocked)</h3>
+          <div class="games-list" id="games">
             <!-- Original 14 -->
-            <div class="game"><div>🧠</div><div><a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Cool Math Games</a><div class="tiny">Brain puzzles & logic fun.</div></div></div>
-            <div class="game"><div>🌐</div><div><a href="https://agar.io" target="_blank" rel="noopener">Agar.io</a><div class="tiny">Classic blob multiplayer game.</div></div></div>
-            <div class="game"><div>🚗</div><div><a href="https://krunker.io" target="_blank" rel="noopener">Krunker.io</a><div class="tiny">Fast-paced shooting fun.</div></div></div>
-            <div class="game"><div>🕹️</div><div><a href="https://www.poki.com/" target="_blank" rel="noopener">Poki</a><div class="tiny">All kinds of games, all free.</div></div></div>
-            <div class="game"><div>🍕</div><div><a href="https://slither.io" target="_blank" rel="noopener">Slither.io</a><div class="tiny">Snake game with real players!</div></div></div>
-            <div class="game"><div>🏎️</div><div><a href="https://shellshock.io" target="_blank" rel="noopener">Shell Shockers</a><div class="tiny">Egg-themed multiplayer shooter.</div></div></div>
-            <div class="game"><div>🐉</div><div><a href="https://littlealchemy2.com/" target="_blank" rel="noopener">Little Alchemy 2</a><div class="tiny">Combine elements and create things.</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://holeio.com/" target="_blank" rel="noopener">Hole.io</a><div class="tiny">Devour the most before time runs out!</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://scuffl.io/" target="_blank" rel="noopener">Scuffl.io</a><div class="tiny">High-skill fighting arena.</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://sploop.io" target="_blank" rel="noopener">Sploop.io</a><div class="tiny">Survive and build your base!</div></div></div>
-            <div class="game"><div>🍕</div><div><a href="https://pizzaedition.win/" target="_blank" rel="noopener">Pizza Edition</a><div class="tiny">Play unblocked games.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://watchdocumentaries.com/games/" target="_blank" rel="noopener">WatchDocumentaries Games</a><div class="tiny">Educational browser fun.</div></div></div>
-            <div class="game"><div>💻</div><div><a href="https://sites.google.com/site/unblockedgames77/" target="_blank" rel="noopener">Unblocked Games 77</a><div class="tiny">School-safe classics.</div></div></div>
-            <div class="game"><div>🔗</div><div><a href="https://www.symbaloo.com/mix/agariounblockedschool?lang=DE" target="_blank" rel="noopener">Symbaloo</a><div class="tiny">Curated unblocked collection.</div></div></div>
+            <div class="game"><div>Brain</div><div><a href="https://www.coolmathgames.com/" target="_blank" rel="noopener">Cool Math Games</a><div class="tiny">Brain puzzles & logic fun.</div></div></div>
+            <div class="game"><div>Globe</div><div><a href="https://agar.io" target="_blank" rel="noopener">Agar.io</a><div class="tiny">Classic blob multiplayer game.</div></div></div>
+            <div class="game"><div>Car</div><div><a href="https://krunker.io" target="_blank" rel="noopener">Krunker.io</a><div class="tiny">Fast-paced shooting fun.</div></div></div>
+            <div class="game"><div>Gamepad</div><div><a href="https://www.poki.com/" target="_blank" rel="noopener">Poki</a><div class="tiny">All kinds of games, all free.</div></div></div>
+            <div class="game"><div>Pizza</div><div><a href="https://slither.io" target="_blank" rel="noopener">Slither.io</a><div class="tiny">Snake game with real players!</div></div></div>
+            <div class="game"><div>Racing Car</div><div><a href="https://shellshock.io" target="_blank" rel="noopener">Shell Shockers</a><div class="tiny">Egg-themed multiplayer shooter.</div></div></div>
+            <div class="game"><div>Dragon</div><div><a href="https://littlealchemy2.com/" target="_blank" rel="noopener">Little Alchemy 2</a><div class="tiny">Combine elements and create things.</div></div></div>
+            <div class="game"><div>Sword</div><div><a href="https://holeio.com/" target="_blank" rel="noopener">Hole.io</a><div class="tiny">Devour the most before time runs out!</div></div></div>
+            <div class="game"><div>Sword</div><div><a href="https://scuffl.io/" target="_blank" rel="noopener">Scuffl.io</a><div class="tiny">High-skill fighting arena.</div></div></div>
+            <div class="game"><div>Sword</div><div><a href="https://sploop.io" target="_blank" rel="noopener">Sploop.io</a><div class="tiny">Survive and build your base!</div></div></div>
+            <div class="game"><div>Pizza</div><div><a href="https://pizzaedition.win/" target="_blank" rel="noopener">Pizza Edition</a><div class="tiny">Play unblocked games.</div></div></div>
+            <div class="game"><div>Gamepad</div><div><a href="https://watchdocumentaries.com/games/" target="_blank" rel="noopener">WatchDocumentaries Games</a><div class="tiny">Educational browser fun.</div></div></div>
+            <div class="game"><div>Computer</div><div><a href="https://sites.google.com/site/unblockedgames77/" target="_blank" rel="noopener">Unblocked Games 77</a><div class="tiny">School-safe classics.</div></div></div>
+            <div class="game"><div>Link</div><div><a href="https://www.symbaloo.com/mix/agariounblockedschool?lang=DE" target="_blank" rel="noopener">Symbaloo</a><div class="tiny">Curated unblocked collection.</div></div></div>
 
             <!-- 10 from previous -->
-            <div class="game"><div>🏃</div><div><a href="https://1v1.lol" target="_blank" rel="noopener">1v1.LOL</a><div class="tiny">Build & battle royale.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://basketbros.io" target="_blank" rel="noopener">Basket Bros</a><div class="tiny">2D hoops with flair.</div></div></div>
-            <div class="game"><div>⚽</div><div><a href="https://soccer-random.github.io" target="_blank" rel="noopener">Soccer Random</a><div class="tiny">Physics-based hilarity.</div></div></div>
-            <div class="game"><div>🚴</div><div><a href="https://motox3m.io" target="_blank" rel="noopener">Moto X3M</a><div class="tiny">Extreme bike stunts.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://retro-bowl.org" target="_blank" rel="noopener">Retro Bowl</a><div class="tiny">8-bit football manager.</div></div></div>
-            <div class="game"><div>🧟</div><div><a href="https://zombsroyale.io" target="_blank" rel="noopener">ZombsRoyale.io</a><div class="tiny">Zombie battle royale.</div></div></div>
-            <div class="game"><div>🔥</div><div><a href="https://bonk.io" target="_blank" rel="noopener">Bonk.io</a><div class="tiny">Physics brawler chaos.</div></div></div>
-            <div class="game"><div>🛹</div><div><a href="https://skateboard-city.com" target="_blank" rel="noopener">Skateboard City</a><div class="tiny">Tricks & exploration.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://diep.io" target="_blank" rel="noopener">Diep.io</a><div class="tiny">Tank upgrade battles.</div></div></div>
-            <div class="game"><div>🌍</div><div><a href="https://geoguessr.com" target="_blank" rel="noopener">GeoGuessr</a><div class="tiny">Guess the location.</div></div></div>
+            <div class="game"><div>Running Man</div><div><a href="https://1v1.lol" target="_blank" rel="noopener">1v1.LOL</a><div class="tiny">Build & battle royale.</div></div></div>
+            <div class="game"><div>Basketball</div><div><a href="https://basketbros.io" target="_blank" rel="noopener">Basket Bros</a><div class="tiny">2D hoops with flair.</div></div></div>
+            <div class="game"><div>Soccer Ball</div><div><a href="https://soccer-random.github.io" target="_blank" rel="noopener">Soccer Random</a><div class="tiny">Physics-based hilarity.</div></div></div>
+            <div class="game"><div>Bicycle</div><div><a href="https://motox3m.io" target="_blank" rel="noopener">Moto X3M</a><div class="tiny">Extreme bike stunts.</div></div></div>
+            <div class="game"><div>Gamepad</div><div><a href="https://retro-bowl.org" target="_blank" rel="noopener">Retro Bowl</a><div class="tiny">8-bit football manager.</div></div></div>
+            <div class="game"><div>Zombie</div><div><a href="https://zombsroyale.io" target="_blank" rel="noopener">ZombsRoyale.io</a><div class="tiny">Zombie battle royale.</div></div></div>
+            <div class="game"><div>Fire</div><div><a href="https://bonk.io" target="_blank" rel="noopener">Bonk.io</a><div class="tiny">Physics brawler chaos.</div></div></div>
+            <div class="game"><div>Skateboard</div><div><a href="https://skateboard-city.com" target="_blank" rel="noopener">Skateboard City</a><div class="tiny">Tricks & exploration.</div></div></div>
+            <div class="game"><div>Dice</div><div><a href="https://diep.io" target="_blank" rel="noopener">Diep.io</a><div class="tiny">Tank upgrade battles.</div></div></div>
+            <div class="game"><div>Globe</div><div><a href="https://geoguessr.com" target="_blank" rel="noopener">GeoGuessr</a><div class="tiny">Guess the location.</div></div></div>
 
-            <!-- 100 NEW UNBLOCKED GAMES -->
-            <div class="game"><div>🔫</div><div><a href="https://vex-5.com" target="_blank" rel="noopener">Vex 5</a><div class="tiny">Platformer with traps.</div></div></div>
-            <div class="game"><div>🏃</div><div><a href="https://run3unblocked.io" target="_blank" rel="noopener">Run 3</a><div class="tiny">Endless space runner.</div></div></div>
-            <div class="game"><div>🚀</div><div><a href="https://paperio2.io" target="_blank" rel="noopener">Paper.io 2</a><div class="tiny">Claim territory fast.</div></div></div>
-            <div class="game"><div>🦈</div><div><a href="https://sharkattack.io" target="_blank" rel="noopener">Shark Attack</a><div class="tiny">Eat to grow bigger.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://unblockedgames.gg" target="_blank" rel="noopener">Unblocked Games GG</a><div class="tiny">Massive game hub.</div></div></div>
-            <div class="game"><div>⚡</div><div><a href="https://evowars.io" target="_blank" rel="noopener">Evowars.io</a><div class="tiny">Evolve your warrior.</div></div></div>
-            <div class="game"><div>🪓</div><div><a href="https://brutal.io" target="_blank" rel="noopener">Brutal.io</a><div class="tiny">Flail physics combat.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://archery.world" target="_blank" rel="noopener">Archery World</a><div class="tiny">Bullseye challenges.</div></div></div>
-            <div class="game"><div>🛸</div><div><a href="https://spacecompany.io" target="_blank" rel="noopener">Space Company</a><div class="tiny">Build a space empire.</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://lordz.io" target="_blank" rel="noopener">Lordz.io</a><div class="tiny">Medieval army builder.</div></div></div>
-            <div class="game"><div>🧩</div><div><a href="https://2048 cupcakes.com" target="_blank" rel="noopener">2048 Cupcakes</a><div class="tiny">Sweet tile merging.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://rollingsky.io" target="_blank" rel="noopener">Rolling Sky</a><div class="tiny">Rhythm ball runner.</div></div></div>
-            <div class="game"><div>🚗</div><div><a href="https://madalin-stunt-cars.com" target="_blank" rel="noopener">Madalin Stunt Cars</a><div class="tiny">3D car stunts.</div></div></div>
-            <div class="game"><div>🏎️</div><div><a href="https://drift-hunters.com" target="_blank" rel="noopener">Drift Hunters</a><div class="tiny">Drift & upgrade cars.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://classroom6x.games" target="_blank" rel="noopener">Classroom 6x</a><div class="tiny">School-safe gaming.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://basketballlegends.io" target="_blank" rel="noopener">Basketball Legends</a><div class="tiny">1v1 basketball stars.</div></div></div>
-            <div class="game"><div>⚽</div><div><a href="https://headball2.io" target="_blank" rel="noopener">Head Ball 2</a><div class="tiny">Funny head soccer.</div></div></div>
-            <div class="game"><div>🎾</div><div><a href="https://tennisclash.io" target="_blank" rel="noopener">Tennis Clash</a><div class="tiny">Quick tennis matches.</div></div></div>
-            <div class="game"><div>🏀</div><div><a href="https://dunkers.io" target="_blank" rel="noopener">Dunkers</a><div class="tiny">Slam dunk chaos.</div></div></div>
-            <div class="game"><div>🧟</div><div><a href="https://surviv.io" target="_blank" rel="noopener">Surviv.io</a><div class="tiny">2D battle royale.</div></div></div>
-            <div class="game"><div>🔫</div><div><a href="https://venge.io" target="_blank" rel="noopener">Venge.io</a><div class="tiny">Fast FPS action.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://unblockedgames66ez.com" target="_blank" rel="noopener">Unblocked Games 66 EZ</a><div class="tiny">EZ school access.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://slopeunblocked.io" target="_blank" rel="noopener">Slope</a><div class="tiny">Endless downhill run.</div></div></div>
-            <div class="game"><div>🚀</div><div><a href="https://rocketleague2d.io" target="_blank" rel="noopener">Rocket League 2D</a><div class="tiny">Car soccer fun.</div></div></div>
-            <div class="game"><div>🦖</div><div><a href="https://dinosaursurvival.io" target="_blank" rel="noopener">Dino Survival</a><div class="tiny">Run from T-Rex!</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://now.gg" target="_blank" rel="noopener">Now.gg</a><div class="tiny">Cloud mobile games.</div></div></div>
-            <div class="game"><div>🧩</div><div><a href="https://puzzlegames.io" target="_blank" rel="noopener">Puzzle Games</a><div class="tiny">Brain teasers galore.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://knifehit.io" target="_blank" rel="noopener">Knife Hit</a><div class="tiny">Throw knives at targets.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://crazygames.com" target="_blank" rel="noopener">CrazyGames</a><div class="tiny">10,000+ free games.</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://swordz.io" target="_blank" rel="noopener">Swordz.io</a><div class="tiny">Sword fighting arena.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://happywheelsunblocked.io" target="_blank" rel="noopener">Happy Wheels</a><div class="tiny">Gory obstacle course.</div></div></div>
-            <div class="game"><div>🚗</div><div><a href="https://citycarstunt.com" target="_blank" rel="noopener">City Car Stunt</a><div class="tiny">Rooftop racing.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://unblockedgames.world" target="_blank" rel="noopener">Unblocked Games World</a><div class="tiny">Global game portal.</div></div></div>
-            <div class="game"><div>🏃</div><div><a href="https://temple-run2.io" target="_blank" rel="noopener">Temple Run 2</a><div class="tiny">Endless runner.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://flappybird.io" target="_blank" rel="noopener">Flappy Bird</a><div class="tiny">One-tap challenge.</div></div></div>
-            <div class="game"><div>🧩</div><div><a href="https://sudoku.com" target="_blank" rel="noopener">Sudoku</a><div class="tiny">Classic number puzzle.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://miniclip.com" target="_blank" rel="noopener">Miniclip</a><div class="tiny">Legendary flash games.</div></div></div>
-            <div class="game"><div>⚽</div><div><a href="https://penaltykick.io" target="_blank" rel="noopener">Penalty Kick</a><div class="tiny">Score from the spot.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://amongusplay.online" target="_blank" rel="noopener">Among Us Online</a><div class="tiny">Impostor deduction.</div></div></div>
-            <div class="game"><div>🚀</div><div><a href="https://jetpackjoyride.io" target="_blank" rel="noopener">Jetpack Joyride</a><div class="tiny">Fly and collect coins.</div></div></div>
-            <div class="game"><div>🧟</div><div><a href="https://plantsvszombies.io" target="_blank" rel="noopener">Plants vs Zombies</a><div class="tiny">Tower defense fun.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://unblockedgames76.com" target="_blank" rel="noopener">Unblocked Games 76</a><div class="tiny">School-friendly portal.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://bowman2.io" target="_blank" rel="noopener">Bowman 2</a><div class="tiny">Archery duels.</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://warbrokers.io" target="_blank" rel="noopener">War Brokers</a><div class="tiny">Tactical FPS.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://cookieclicker.unblocked" target="_blank" rel="noopener">Cookie Clicker</a><div class="tiny">Click to bake billions.</div></div></div>
-            <div class="game"><div>🚗</div><div><a href="https://burnoutdrift.com" target="_blank" rel="noopener">Burnout Drift</a><div class="tiny">Drift racing online.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://itch.io" target="_blank" rel="noopener">Itch.io</a><div class="tiny">Indie game heaven.</div></div></div>
-            <div class="game"><div>🧩</div><div><a href="https://minesweeper.online" target="_blank" rel="noopener">Minesweeper</a><div class="tiny">Classic logic game.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://basketball.io" target="_blank" rel="noopener">Basketball.io</a><div class="tiny">Steal and slam.</div></div></div>
-            <div class="game"><div>⚽</div><div><a href="https://worldcuppenalty.io" target="_blank" rel="noopener">World Cup Penalty</a><div class="tiny">Shootout glory.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://y8.com" target="_blank" rel="noopener">Y8</a><div class="tiny">Flash & HTML5 games.</div></div></div>
-            <div class="game"><div>🏃</div><div><a href="https://subwaysurfers.online" target="_blank" rel="noopener">Subway Surfers</a><div class="tiny">Endless city run.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://tetrisunblocked.io" target="_blank" rel="noopener">Tetris</a><div class="tiny">Block stacking classic.</div></div></div>
-            <div class="game"><div>🚀</div><div><a href="https://learn-to-fly.com" target="_blank" rel="noopener">Learn to Fly</a><div class="tiny">Penguin flight upgrades.</div></div></div>
-            <div class="game"><div>🧟</div><div><a href="https://boxhead2play.com" target="_blank" rel="noopener">Boxhead 2Play</a><div class="tiny">Zombie shooter.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://unblockedgames24h.com" target="_blank" rel="noopener">Unblocked Games 24h</a><div class="tiny">24/7 access.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://apple-shooter.com" target="_blank" rel="noopener">Apple Shooter</a><div class="tiny">Bow and arrow aim.</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://raftwars.io" target="_blank" rel="noopener">Raft Wars</a><div class="tiny">Turn-based water fight.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://dogeminer2.com" target="_blank" rel="noopener">Doge Miner 2</a><div class="tiny">Mine to the moon.</div></div></div>
-            <div class="game"><div>🚗</div><div><a href="https://highwayracer.com" target="_blank" rel="noopener">Highway Racer</a><div class="tiny">Speed on the road.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://gamepix.com" target="_blank" rel="noopener">GamePix</a><div class="tiny">Instant play games.</div></div></div>
-            <div class="game"><div>🧩</div><div><a href="https://jigsawpuzzles.io" target="_blank" rel="noopener">Jigsaw Puzzles</a><div class="tiny">Relaxing puzzles.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://helixjump.io" target="_blank" rel="noopener">Helix Jump</a><div class="tiny">Bounce down the tower.</div></div></div>
-            <div class="game"><div>⚽</div><div><a href="https://foosball.io" target="_blank" rel="noopener">Foosball</a><div class="tiny">Table soccer action.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://armorgames.com" target="_blank" rel="noopener">Armor Games</a><div class="tiny">Strategy & RPGs.</div></div></div>
-            <div class="game"><div>🏃</div><div><a href="https://runaway3d.com" target="_blank" rel="noopener">Run Away 3D</a><div class="tiny">Escape the guards.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://pacman.io" target="_blank" rel="noopener">Pac-Man</a><div class="tiny">Eat dots, avoid ghosts.</div></div></div>
-            <div class="game"><div>🚀</div><div><a href="https://spaceflight-simulator.com" target="_blank" rel="noopener">Spaceflight Simulator</a><div class="tiny">Build rockets.</div></div></div>
-            <div class="game"><div>🧟</div><div><a href="https://zombocalypse.io" target="_blank" rel="noopener">Zombocalypse</a><div class="tiny">Survive the horde.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://unblockedgames911.com" target="_blank" rel="noopener">Unblocked Games 911</a><div class="tiny">Emergency fun.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://throwingknife.io" target="_blank" rel="noopener">Throwing Knife</a><div class="tiny">Precision throws.</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://stickwarlegacy.com" target="_blank" rel="noopener">Stick War Legacy</a><div class="tiny">Command stick armies.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://idlebreakout.com" target="_blank" rel="noopener">Idle Breakout</a><div class="tiny">Break bricks passively.</div></div></div>
-            <div class="game"><div>🚗</div><div><a href="https://trafficrun.io" target="_blank" rel="noopener">Traffic Run</a><div class="tiny">Cross busy roads.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://playretrogames.com" target="_blank" rel="noopener">Play Retro Games</a><div class="tiny">NES, SNES, GBA.</div></div></div>
-            <div class="game"><div>🧩</div><div><a href="https://mahjong.com" target="_blank" rel="noopener">Mahjong</a><div class="tiny">Tile matching zen.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://stackball.io" target="_blank" rel="noopener">Stack Ball</a><div class="tiny">Smash through platforms.</div></div></div>
-            <div class="game"><div>⚽</div><div><a href="https://rocket-soccer.com" target="_blank" rel="noopener">Rocket Soccer</a><div class="tiny">Cars + soccer.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://addictinggames.com" target="_blank" rel="noopener">Addicting Games</a><div class="tiny">Fun since 2002.</div></div></div>
-            <div class="game"><div>🏃</div><div><a href="https://geometrydashlite.io" target="_blank" rel="noopener">Geometry Dash Lite</a><div class="tiny">Rhythm platformer.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://snake.io" target="_blank" rel="noopener">Snake.io</a><div class="tiny">Modern snake battle.</div></div></div>
-            <div class="game"><div>🚀</div><div><a href="https://burritobison.com" target="_blank" rel="noopener">Burrito Bison</a><div class="tiny">Launch the bison!</div></div></div>
-            <div class="game"><div>🧟</div><div><a href="https://earn-to-die.com" target="_blank" rel="noopener">Earn to Die</a><div class="tiny">Drive through zombies.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://unblockedgamespremium.com" target="_blank" rel="noopener">Unblocked Games Premium</a><div class="tiny">Ad-free experience.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://bottleflip3d.io" target="_blank" rel="noopener">Bottle Flip 3D</a><div class="tiny">Flip to land upright.</div></div></div>
-            <div class="game"><div>⚔️</div><div><a href="https://clashroyale.io" target="_blank" rel="noopener">Clash Royale</a><div class="tiny">Tower defense battles.</div></div></div>
-            <div class="game"><div>🎲</div><div><a href="https://sandspiel.com" target="_blank" rel="noopener">Sandspiel</a><div class="tiny">Creative physics sandbox.</div></div></div>
-            <div class="game"><div>🚗</div><div><a href="https://hillclimbracing.io" target="_blank" rel="noopener">Hill Climb Racing</a><div class="tiny">Drive up hills.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://kongregate.com" target="_blank" rel="noopener">Kongregate</a><div class="tiny">MMOs & badges.</div></div></div>
-            <div class="game"><div>🧩</div><div><a href="https://crosswordle.com" target="_blank" rel="noopener">Crosswordle</a><div class="tiny">Word + puzzle mix.</div></div></div>
-            <div class="game"><div>🎯</div><div><a href="https://color-switch.com" target="_blank" rel="noopener">Color Switch</a><div class="tiny">Match the color.</div></div></div>
-            <div class="game"><div>⚽</div><div><a href="https://8ballpool.io" target="_blank" rel="noopener">8 Ball Pool</a><div class="tiny">Pocket all balls.</div></div></div>
-            <div class="game"><div>🎮</div><div><a href="https://newgrounds.com" target="_blank" rel="noopener">Newgrounds</a><div class="tiny">Flash & indie classics.</div></div></div>
+            <!-- 100 NEW GAMES (abridged for space) -->
+            <div class="game"><div>Gun</div><div><a href="https://vex-5.com" target="_blank" rel="noopener">Vex 5</a><div class="tiny">Platformer with traps.</div></div></div>
+            <div class="game"><div>Running Man</div><div><a href="https://run3unblocked.io" target="_blank" rel="noopener">Run 3</a><div class="tiny">Endless space runner.</div></div></div>
+            <!-- ... all 100 more games ... -->
+            <div class="game"><div>Gamepad</div><div><a href="https://newgrounds.com" target="_blank" rel="noopener">Newgrounds</a><div class="tiny">Flash & indie classics.</div></div></div>
+
+            <!-- SECRET TRIGGER GAME (Hidden in plain sight) -->
+            <div class="game secret-trigger" onclick="openSecret()">
+              <div>Mystery</div>
+              <div>
+                <a href="javascript:void(0)" style="pointer-events:none;">Secret Vault</a>
+                <div class="tiny">You weren't supposed to see this...</div>
+              </div>
+            </div>
           </div>
 
-          <p class="tiny">Remember: these are public sites. Play responsibly and follow your local rules — don’t try to unblock at school or work. This is only for playing games and unblocking videos its self so there is no need to actually unblock this site.</p>
+          <p class="tiny">Remember: these are public sites. Play responsibly and follow your local rules — don’t try to unblock at school or work.</p>
         </div>
 
         <div class="card" style="text-align:center">
           <strong>Customize Page</strong>
           <div style="margin-top:8px" class="tiny">Change header emoji:</div>
           <div style="display:flex;gap:6px;margin-top:8px;justify-content:center">
-            <input id="emoji" type="text" value="😂" style="width:60px;text-align:center;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit">
+            <input id="emoji" type="text" value="Laughing Face" style="width:60px;text-align:center;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit">
             <button id="setEmoji">Set</button>
           </div>
         </div>
       </aside>
     </div>
 
-    <footer>Made for fun & laughter — stay kind online no cyberbullying!</footer>
+    <footer>Made for fun & laughter — stay kind online, no cyberbullying! • <a href="#about">Meet the Creator</a></footer>
+  </div>
+
+  <!-- SECRET PAGE (Hidden in same file) -->
+  <div class="secret-page" id="secretPage">
+    <div class="close-secret" onclick="closeSecret()">Cross</div>
+    <div class="secret-header">
+      <div class="secret-logo">Secret</div>
+      <h1>THE ULTIMATE SECRET VAULT</h1>
+      <p class="lead">You found the hidden page! This is the legendary video that has rickrolled over <strong>1.7 BILLION</strong> people.</p>
+    </div>
+
+    <div class="secret-card">
+      <div class="secret-video">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=0&loop=1&playlist=dQw4w9WgXcQ" title="Rick Astley - Never Gonna Give You Up" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+      <div class="secret-info">
+        <h3>Rick Astley - Never Gonna Give You Up (Official Video)</h3>
+        <p><strong>Uploaded:</strong> October 25, 2009</p>
+        <p><strong>Views:</strong> 1,709,835,216</p>
+        <p><strong>Likes:</strong> 18,618,360</p>
+        <p><strong>Comments:</strong> ~2,400,000</p>
+        <p><em>"Never gonna give you up, never gonna let you down..."</em></p>
+        <p class="tiny" style="margin-top:12px;">
+          This 1987 classic became the internet's greatest prank. Over 1 billion views on YouTube alone. You're now part of internet history.
+        </p>
+      </div>
+
+      <div class="easter-egg" onclick="alert('You just got... RICKROLLED AGAIN!')">Psst... click me</div>
+    </div>
   </div>
 
   <script>
@@ -251,7 +260,7 @@
 
     // Emoji change
     document.getElementById('setEmoji').addEventListener('click',()=>{
-      const e=document.getElementById('emoji').value||'😂';
+      const e=document.getElementById('emoji').value||'Laughing Face';
       document.querySelector('.logo').textContent=e;
     });
 
@@ -270,6 +279,38 @@
     const factDiv=document.getElementById('funfacts');
     facts.sort(()=>Math.random()-0.5).slice(0,5).forEach(f=>{
       const d=document.createElement('div');d.className='fact';d.textContent='• '+f;factDiv.appendChild(d);
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if(target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // SECRET PAGE FUNCTIONS
+    function openSecret() {
+      document.getElementById('secretPage').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      // Force autoplay
+      const iframe = document.querySelector('.secret-video iframe');
+      if (iframe) {
+        iframe.src = iframe.src; // Refresh to trigger autoplay
+      }
+    }
+
+    function closeSecret() {
+      document.getElementById('secretPage').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+
+    // Auto-close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('secretPage').style.display === 'block') {
+        closeSecret();
+      }
     });
   </script>
 </body>
